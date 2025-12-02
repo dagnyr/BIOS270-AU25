@@ -1,16 +1,31 @@
 writeup 2
 
+# Micromamba
+
 What micromamba command can you use to list all created environemnts?
+
+micromamba env list
 
 What micromamba command can you use to list all packages installed in a specific environment?
 
+micromamba list
+
 What micromamba command can you use to remove a package?
+
+micromamba remove or micromamba uninstall followed by the package name.
 
 What micromamba command can you use to install a package from a specific channel?
 
+micromamba install [package name] -c [channel] can be used if you have a specific channel or repository in mind.
+
 What micromamba command can you use to remove an environment?
+
+micromamba env remove [environment name or path]
 
 What are all the r-base and Bioconductor packages that were installed in the bioinfo_example environment? (Hint: You may want to use one of the commands from your answers to the above questions, and combine it with the grep command.)
 
-Singularity and Docker Image
+References: I used the micromamba documentation (https://mamba.readthedocs.io/en/latest/user_guide/mamba.html) for reference for these questions.
+
+#Singularity and Docker Image
+
 Can you run it? Why do you think this is the case? (Hint: -B flag)
