@@ -1,0 +1,10 @@
+writeup 1
+
+How many slurm job will be submitted?
+There are three "job array" that are submitted in the sbatch file, 0, 1, and 2 (so three total).
+
+What is the purpose of the if statement?
+If statement: i % SLURM_ARRAY_TASK_COUNT == SLURM_ARRAY_TASK_ID
+In the if statement, they are looking at the remainder of the index i divided by the SLURM_ARRAY_TASK_COUNT and checking if it is equal to the SLURM_ARRAY_TASK_ID. Since there are 3 total job array tasks, this is the remainder of i divided by 3. If its true, it then prints the index i followed by some text like "I: [random text].
+
+What is the expected output in each *.out file?
