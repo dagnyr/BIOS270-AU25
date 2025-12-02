@@ -1,1 +1,9 @@
 writeup 3
+
+Examine create_bacteria_db.sh, how many tables will be created in the database?
+In the insert_gff_table.py script you submitted, explain the logic of using try and except. Why is this necessary?
+
+Then, uncomment db.index_record_ids() in query_bacteria_db.py and note how the runtime changes.
+Why do you think this is the case?
+
+Explain why the following chunk configuration makes sense - what kind of data access pattern is expected, and why does this align with biological use cases?
