@@ -1,9 +1,254 @@
 writeup 3
 
+Part 1: Creating the Database
+
 Examine create_bacteria_db.sh, how many tables will be created in the database?
+Three are created  insert_gff_table.py, insert_protein_cluster_table.py, and insert_metadata_table.py.
+
 In the insert_gff_table.py script you submitted, explain the logic of using try and except. Why is this necessary?
+
+This is necessary in case the SQL database is locked, in which case, the except function has a one second sleep time and then retries.
+
+Code of making the SQL database:
+
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ sbatch create_bacteria_db.sh
+Submitted batch job 1054510
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ squeue -u dagnyr
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1054510    normal createdb   dagnyr  R       0:19      1 wheat-06
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ vim query_bacteria_db.py
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ squeue -u dagnyr
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1054510    normal createdb   dagnyr  R       8:13      1 wheat-06
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ ls
+Data.md                create_protein_h5.py  insert_gff_table.py              logs
+bacteria.db            create_protein_h5.sh  insert_metadata_table.py         query_bacteria_db.py
+create_bacteria_db.sh  drive                 insert_protein_cluster_table.py  upload_bigquery.py
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ nano create_bacteria_db.sh
+Segmentation fault (core dumped)
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ vimo create_bacteria_db.sh
+Command 'vimo' not found, did you mean:
+  command 'vim' from deb vim (2:9.1.0016-1ubuntu7.9)
+  command 'vim' from deb vim-gtk3 (2:9.1.0016-1ubuntu7.9)
+  command 'vim' from deb vim-motif (2:9.1.0016-1ubuntu7.9)
+  command 'vim' from deb vim-nox (2:9.1.0016-1ubuntu7.9)
+  command 'vim' from deb neovim (0.7.2-8)
+Try: apt install <deb name>
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ vim create_bacteria_db.sh
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ squeue -u dagnyr
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1054510    normal createdb   dagnyr  R      16:12      1 wheat-06
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ squeue -u dagnyr
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+           1054510    normal createdb   dagnyr  R      16:29      1 wheat-06
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ squeue -u dagnyr
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ ls
+Data.md                create_protein_h5.py  insert_gff_table.py              logs
+bacteria.db            create_protein_h5.sh  insert_metadata_table.py         query_bacteria_db.py
+create_bacteria_db.sh  drive                 insert_protein_cluster_table.py  upload_bigquery.py
+
+Part 2: Querying the DB
 
 Then, uncomment db.index_record_ids() in query_bacteria_db.py and note how the runtime changes.
 Why do you think this is the case?
 
+When you are looking data up in a table, I imagine it is much quicker to find things with an index than by searching. For instance if I want to look for rows containing a string like "apple", you would have to go and actually check each row and its contents (meaning you'd have to load it and check and then confirm its the row). But with indexing, you can just immediatly look for the ID/index, which I imagine is much quicker as you only need to look at the index value and no other values.
+
+Code:
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ module load apptainer
+
+apptainer exec -B /farmshare/home/classes/bios/270:/farmshare/home/classes/bios/270 \
+  ~/bioinformatics_latest.sif \
+  python query_bacteria_db.py --database_path bacteria.db
+Total number of record ids:  4100
+Processed 0 record ids in 7.449859142303467 seconds
+Processed 10 record ids in 40.33696269989014 seconds
+Processed 20 record ids in 72.84231328964233 seconds
+Processed 30 record ids in 106.22877860069275 seconds
+Processed 40 record ids in 139.08186197280884 seconds
+Processed 50 record ids in 171.43868374824524 seconds
+Processed 60 record ids in 204.52973294258118 seconds
+Processed 70 record ids in 238.71929049491882 seconds
+Processed 80 record ids in 273.57999062538147 seconds
+^CTraceback (most recent call last):
+  File "/home/users/dagnyr/bios270/BIOS270-AU25/Data/query_bacteria_db.py", line 65, in <module>
+    protein_ids = db.get_protein_ids_from_record_id(record_id)
+  File "/home/users/dagnyr/bios270/BIOS270-AU25/Data/query_bacteria_db.py", line 25, in get_protein_ids_from_record_id
+    df = pd.read_sql(query, self.conn, params=(record_id,))
+  File "/usr/local/lib/python3.10/dist-packages/pandas/io/sql.py", line 708, in read_sql
+  File "/usr/local/lib/python3.10/dist-packages/pandas/io/sql.py", line 2743, in read_query
+  File "/usr/local/lib/python3.10/dist-packages/pandas/io/sql.py", line 2758, in _fetchall_as_list
+KeyboardInterrupt
+
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ vim query_bacteria_db.py
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ # after uncommenting
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ module load apptainer
+
+apptainer exec -B /farmshare/home/classes/bios/270:/farmshare/home/classes/bios/270 \
+  ~/bioinformatics_latest.sif \
+  python query_bacteria_db.py --database_path bacteria.db
+Total number of record ids:  4100
+Processed 0 record ids in 1.0085136890411377 seconds
+Processed 10 record ids in 1.0971980094909668 seconds
+Processed 20 record ids in 1.163508653640747 seconds
+Processed 30 record ids in 1.2662560939788818 seconds
+Processed 40 record ids in 1.3499469757080078 seconds
+Processed 50 record ids in 1.4365906715393066 seconds
+Processed 60 record ids in 1.5429792404174805 seconds
+Processed 70 record ids in 1.645993709564209 seconds
+Processed 80 record ids in 1.747225046157837 seconds
+Processed 90 record ids in 1.8476271629333496 seconds
+Processed 100 record ids in 1.9447057247161865 seconds
+Processed 110 record ids in 2.0212130546569824 seconds
+Processed 120 record ids in 2.1200129985809326 seconds
+Processed 130 record ids in 2.2013983726501465 seconds
+Processed 140 record ids in 2.2959225177764893 seconds
+Processed 150 record ids in 2.409191846847534 seconds
+Processed 160 record ids in 2.4996578693389893 seconds
+Processed 170 record ids in 2.5902674198150635 seconds
+.....
+
+Processed 540 record ids in 5.650413751602173 seconds
+Processed 550 record ids in 5.721520662307739 seconds
+Processed 560 record ids in 5.814491271972656 seconds
+
+Part 3: Uploading Data
+
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ module load apptainer
+
+apptainer exec -B /farmshare/home/classes/bios/270:/farmshare/home/classes/bios/270 \
+  ~/bioinformatics_latest.sif \
+python upload_bigquery.py --local_database_path bacteria.db --project_id probable-setup-477922-d4 --dataset_id bacteria
+/usr/local/lib/python3.10/dist-packages/google/api_core/_python_version_support.py:266: FutureWarning: You are using a Python version (3.10.12) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+
+Uploading table: gff
+gff: 100%|█████████████████████████████████████████████| 8809121/8809121 [02:51<00:00, 51244.64it/s]
+Finished uploading gff
+
+Uploading table: protein_cluster
+protein_cluster: 100%|█████████████████████████████████| 8097917/8097917 [01:38<00:00, 81812.31it/s]Finished uploading protein_cluster
+
+Uploading table: metadata
+metadata: 100%|████████████████████████████████████████████████| 1958/1958 [00:02<00:00, 673.54it/s]
+Finished uploading metadata
+
+Part 4: HDF5 Data
+
 Explain why the following chunk configuration makes sense - what kind of data access pattern is expected, and why does this align with biological use cases?
+
+chunk_size = 1000
+chunks = (chunk_size, n_features)
+
+When looking at biological data, like sequencing data, it doesn't make sense to look at a subsection of features as you are losing information about each sample. Instead, by chunking by sample, cell, donor, patient, etc. you can look at every feature in a subset of patients at a time (meaning for each subset, you aren't losing any information). The data itself is also usually structured with something like protein expression, transcript expression, etc. as values per each sample, as a matrix, making it straightforward to chunk by sample.
+
+If you are trying to, say, find a gene transcript with the largest TPM or how many mitochondrial transcripts had reads, etc. then you really would not want to subset by features (like genes or transcripts), but rather by sample, as you could simply iterate through and calculate the, for example, transcript with highest TPM per patient using a loop with each chunk of 1000.
+
+Part 5: SQL and HDF5
+
+New function: import sqlite3
+import pandas as pd
+import argparse
+import tqdm
+import time
+import numpy as np
+import h5py
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--database_path", type=str, required=True)
+    parser.add_argument("--h5_path", type=str, required=True)
+    parser.add_argument("--record_id", type=str, required=True)
+    parser.add_argument("--output_path", type=str, default="embeddings.npy")
+    args = parser.parse_args()
+    return args
+
+
+class BacteriaDatabase:
+    def __init__(self, db_path):
+        self.db_path = db_path
+        self.conn = sqlite3.connect(db_path)
+
+    def get_all_record_ids(self):
+        query = "SELECT DISTINCT record_id FROM gff"
+        df = self.query(query)
+        return df["record_id"].dropna().tolist()
+
+    def get_protein_ids_from_record_id(self, record_id):
+        query = "SELECT protein_id FROM gff WHERE record_id = ?"
+        df = pd.read_sql(query, self.conn, params=(record_id,))
+        return df["protein_id"].dropna().tolist()
+
+    def index_record_ids(self):
+        query = "CREATE INDEX IF NOT EXISTS record_id_index ON gff(record_id)"
+        self.conn.execute(query)
+
+    def query(self, query):
+        return pd.read_sql(query, self.conn)
+
+    def close(self):
+        self.conn.close()
+
+    def __del__(self):
+        self.close()
+
+def write_protein_ids(protein_ids, output_path):
+    with open(output_path, "w") as f:
+        f.write("\n".join(protein_ids))
+
+def load_embedding_index(hdf5):
+    protein_ids = (hdf5["protein_ids"][:]).astype(str)
+    return {pid: i for i, pid in enumerate(protein_ids)}
+
+def extract_embeddings(protein_ids, index_map, dataset):
+    rows = [index_map[p] for p in protein_ids if p in index_map]
+    return dataset[rows, :]
+
+if __name__ == "__main__":
+
+    args = parse_args()
+    db = BacteriaDatabase(args.database_path)
+
+    protein_ids = db.get_protein_ids_from_record_id(args.record_id)
+
+    h5f = h5py.File(args.h5_path, "r")
+    dataset = h5f["mean_embeddings"]          # only mean
+    index_map = load_embedding_index(h5f)
+    embeddings = extract_embeddings(protein_ids, index_map, dataset)
+    np.save(args.output_path, embeddings)
+    h5f.close()
+
+    db.close()
+
+Terminal Output:
+
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ module load apptainer
+
+apptainer exec \
+  -B /farmshare/home/classes/bios/270:/farmshare/home/classes/bios/270 \
+  ~/bioinformatics_latest.sif \
+  python newfunction.py \
+    --database_path bacteria.db \
+    --h5_path /farmshare/home/classes/bios/270/data/processed_bacteria_data/protein_embeddings.h5 \
+    --record_id AP019416.1 \
+    --output_path embeddings.npy
+
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ ls
+Data.md                create_protein_h5.sh  insert_metadata_table.py         query_bacteria_db.py
+bacteria.db            drive                 insert_protein_cluster_table.py  upload_bigquery.py
+create_bacteria_db.sh  embeddings.npy        logs
+create_protein_h5.py   insert_gff_table.py   newfunction.py
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ vim embeddings.npy
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ rclone rclone copy embeddings.npy drive:
+Error: unknown command "rclone" for "rclone"
+Run 'rclone --help' for usage.
+You could use 'rclone selfupdate' to get latest features.
+
+2025/12/07 23:43:13 Fatal error: unknown command "rclone" for "rclone"
+dagnyr@rice-02:~/bios270/BIOS270-AU25/Data$ rclone copy embeddings.npy drive:

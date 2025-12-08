@@ -1,0 +1,699 @@
+Last login: Fri Dec  5 23:12:46 on ttys009
+(base) ~ cd cr                                                                             23:40:25
+(base) ~/cr cd pr                                                                          23:40:27
+(base) ~/cr/pr ls                                                                          23:40:29
+backup                      homologene_implementation.R samap.py
+BIOS270-AU25                ImmuneReceptor.pr           smaapa.ipynb
+class_II_project            jliph                       tcr.pr
+class_II_project copy       pipeline.py
+gammadelta.pr               README.md
+(base) ~/cr/pr cd BIOS270-AU25                                                             23:40:30
+(base) ~/cr/pr/BIOS270-AU25 git pull                                                       23:40:34
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+(base) ~/cr/pr/BIOS270-AU25 git stash                                                      23:40:36
+Saved working directory and index state WIP on main: 69fa7f2 working on writeup 2
+(base) ~/cr/pr/BIOS270-AU25 git pull                                                       23:40:43
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+(base) ~/cr/pr/BIOS270-AU25 git add writeup 2                                              23:40:49
+fatal: pathspec 'writeup' did not match any files
+(base) ~/cr/pr/BIOS270-AU25 git add writeup2                                               23:41:03
+fatal: pathspec 'writeup2' did not match any files
+(base) ~/cr/pr/BIOS270-AU25 ls                                                             23:41:17
+Data        Environment HW          Pipeline    Project1    README.md   Setup       Writeups
+(base) ~/cr/pr/BIOS270-AU25 git add /Writeups/writeup2                                     23:41:20
+fatal: Invalid path '/Writeups': No such file or directory
+(base) ~/cr/pr/BIOS270-AU25 git                                                            23:41:31
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+(base) ~/cr/pr/BIOS270-AU25 git add                                                        23:41:38
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+(base) ~/cr/pr/BIOS270-AU25 git add .                                                      23:41:47
+(base) ~/cr/pr/BIOS270-AU25 git commit                                                     23:41:51
+Aborting commit due to empty commit message.
+(base) ~/cr/pr/BIOS270-AU25 git push                                                       23:42:10
+To https://github.com/dagnyr/BIOS270-AU25
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/dagnyr/BIOS270-AU25'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+(base) ~/cr/pr/BIOS270-AU25 git pull                                                       23:42:15
+error: cannot pull with rebase: You have unstaged changes.
+error: additionally, your index contains uncommitted changes.
+error: please commit or stash them.
+(base) ~/cr/pr/BIOS270-AU25 git commit                                                     23:42:25
+Aborting commit due to empty commit message.
+(base) ~/cr/pr/BIOS270-AU25 echo ".DS_Store" >> .gitignore                                 23:42:35
+
+(base) ~/cr/pr/BIOS270-AU25 git commit                                                     23:43:01
+Aborting commit due to empty commit message.
+(base) ~/cr/pr/BIOS270-AU25 git commit                                                     23:43:14
+Aborting commit due to empty commit message.
+(base) ~/cr/pr/BIOS270-AU25 git push                                                       23:43:27
+To https://github.com/dagnyr/BIOS270-AU25
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/dagnyr/BIOS270-AU25'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+(base) ~/cr/pr/BIOS270-AU25 git pull                                                       23:43:31
+error: cannot pull with rebase: You have unstaged changes.
+error: additionally, your index contains uncommitted changes.
+error: please commit or stash them.
+(base) ~/cr/pr/BIOS270-AU25 git stash                                                      23:43:35
+Saved working directory and index state WIP on main: 69fa7f2 working on writeup 2
+(base) ~/cr/pr/BIOS270-AU25 git pull                                                       23:43:38
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 8 (delta 2), reused 6 (delta 2), pack-reused 2 (from 1)
+Unpacking objects: 100% (8/8), 93.67 KiB | 1.25 MiB/s, done.
+From https://github.com/dagnyr/BIOS270-AU25
+   69fa7f2..aebdd54  main       -> origin/main
+Updating 69fa7f2..aebdd54
+Fast-forward
+ Environment/scripts/Rplots.pdf                  | Bin 0 -> 7758 bytes
+ Environment/scripts/bioinfo_example_latest.yaml |  18 ++++++++++++++++++
+ Environment/scripts/python_example_plot.png     | Bin 0 -> 48279 bytes
+ Environment/scripts/r_example_plot.png          | Bin 0 -> 69186 bytes
+ 4 files changed, 18 insertions(+)
+ create mode 100644 Environment/scripts/Rplots.pdf
+ create mode 100644 Environment/scripts/bioinfo_example_latest.yaml
+ create mode 100644 Environment/scripts/python_example_plot.png
+ create mode 100644 Environment/scripts/r_example_plot.png
+(base) ~/cr/pr/BIOS270-AU25 kata adcopu "updated writeup1)                                 23:43:45
+dquote> "
+[ Info: 👍 .
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (16/16), 99.88 KiB | 33.29 MiB/s, done.
+Total 16 (delta 4), reused 3 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/dagnyr/BIOS270-AU25
+   e661ac3..4f3c848  main -> main
+(base) ~/cr/pr/BIOS270-AU25 docker tag bioinfo_example dagnyr/bioinfo_example              16:30:56
+docker push dagnyr/bioinfo_example
+Using default tag: latest
+The push refers to repository [docker.io/dagnyr/bioinfo_example]
+83761ca3a506: Pushed 
+c584f1d3691d: Pushed 
+4f4fb700ef54: Pushed 
+5c3f181a3c35: Pushed 
+6bdea7c8a033: Pushed 
+aeec8eed6bcc: Pushed 
+8283fb9e18a5: Pushed 
+080e8c502059: Pushed 
+85052153e347: Pushed 
+a186900671ab: Pushed 
+ca15f642c9e2: Pushed 
+bd32f1e0fad5: Pushed 
+13e85b259fdf: Pushed 
+b6c932b0141c: Pushed 
+f35b149bbf18: Pushed 
+b86f785312a4: Pushed 
+250048be5596: Pushed 
+64efc2bae850: Pushed 
+eb04b50d467e: Pushed 
+ff945240a25a: Pushed 
+latest: digest: sha256:d5c4d2f78ca3d75cd0a92cee0e1cf7aae61eed0c31f662419d1a178d13e0385e size: 856
+(base) ~/cr/pr/BIOS270-AU25 docker login scr.svc.stanford.edu                              16:45:47
+Username: dagnyr
+Password: 
+Error response from daemon: Get "https://scr.svc.stanford.edu/v2/": unauthorized: HTTP Basic: Access denied. If a password was provided for Git authentication, the password was incorrect or you're required to use a token instead of a password. If a token was provided, it was either incorrect, expired, or improperly scoped. See https://code.stanford.edu/help/user/profile/account/two_factor_authentication_troubleshooting.md#error-http-basic-access-denied-if-a-password-was-provided-for-git-authentication-
+(base) ~/cr/pr/BIOS270-AU25 docker login scr.svc.stanford.edu                              16:49:45
+Username: ssh-keygen -t ed25519 -C "<SUNetID>@stanford.edu"
+Password: 
+Error: Password Required
+(base) ~/cr/pr/BIOS270-AU25 ssh-keygen -t ed25519 -C "dagnyr@stanford.edu"                 16:56:59
+
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/dr/.ssh/id_ed25519): 
+Enter passphrase for "/Users/dr/.ssh/id_ed25519" (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/dr/.ssh/id_ed25519
+Your public key has been saved in /Users/dr/.ssh/id_ed25519.pub
+The key fingerprint is:
+SHA256:vUmO/PO1h+vsEjIVE3KQs3pP80Tvsa+T9BPq5V2Ejyo dagnyr@stanford.edu
+The key's randomart image is:
++--[ED25519 256]--+
+|          ooo.   |
+|          ooo    |
+|           o o   |
+|         .. . .. |
+|        S.o. ....|
+|       ..++o+ o*.|
+|        o.+= *+**|
+|         .E o=B+*|
+|          .++=B*=|
++----[SHA256]-----+
+(base) ~/cr/pr/BIOS270-AU25 cat ~/.ssh/id_ed25519.pub                                      16:57:19
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPhg+m70FnUAz6agM02UpBgIXwba3FrRT/BYYH9CiKbh dagnyr@stanford.edu
+(base) ~/cr/pr/BIOS270-AU25 nano ~/.ssh/config                                             16:57:27
+
+(base) ~/cr/pr/BIOS270-AU25 docker login scr.svc.stanford.edu                              16:58:29
+Username: dagnyr
+Password: 
+
+Error response from daemon: Get "https://scr.svc.stanford.edu/v2/": unauthorized: HTTP Basic: Access denied. If a password was provided for Git authentication, the password was incorrect or you're required to use a token instead of a password. If a token was provided, it was either incorrect, expired, or improperly scoped. See https://code.stanford.edu/help/user/profile/account/two_factor_authentication_troubleshooting.md#error-http-basic-access-denied-if-a-password-was-provided-for-git-authentication-
+(base) ~/cr/pr/BIOS270-AU25                                                                16:59:01
+(base) ~/cr/pr/BIOS270-AU25 docker login scr.svc.stanford.edu                              16:59:01
+Username: dagnyr
+Password: 
+Login Succeeded
+(base) ~/cr/pr/BIOS270-AU25 docker tag bioinfo_example scr.svc.stanford.edu/dagnyr/containers/bioinfo_example  
+docker push scr.svc.stanford.edu/dagnyr/containers/bioinfo_example
+Using default tag: latest
+The push refers to repository [scr.svc.stanford.edu/dagnyr/containers/bioinfo_example]
+6bdea7c8a033: Pushed 
+8283fb9e18a5: Pushed 
+eb04b50d467e: Pushing     213B/213B
+ff945240a25a: Pushing  7.875MB/7.875MB
+080e8c502059: Pushed 
+250048be5596: Pushed 
+5c3f181a3c35: Pushed 
+4f4fb700ef54: Pushed 
+a186900671ab: Pushing  15.96MB/27.36MB
+c584f1d3691d: Pushing  17.73MB/1.141GB
+85052153e347: Pushed 
+f35b149bbf18: Pushing  19.69MB/22.68MB
+bd32f1e0fad5: Pushing  18.19MB/21.52MB
+aeec8eed6bcc: Pushing  21.36MB/242.5MB
+ca15f642c9e2: Pushed 
+64efc2bae850: Pushed 
+83761ca3a506: Pushed 
+b6c932b0141c: Pushed 
+13e85b259fdf: Pushed 
+b86f785312a4: Pushed 
+error from registry: blob upload unknown to registry
+(base) ~/cr/pr/BIOS270-AU25 docker push scr.svc.stanford.edu/dagnyr/containers/bioinfo_example:latest
+
+The push refers to repository [scr.svc.stanford.edu/dagnyr/containers/bioinfo_example]
+85052153e347: Layer already exists 
+6bdea7c8a033: Layer already exists 
+13e85b259fdf: Layer already exists 
+250048be5596: Layer already exists 
+c584f1d3691d: Pushed 
+64efc2bae850: Layer already exists 
+ff945240a25a: Layer already exists 
+b6c932b0141c: Layer already exists 
+a186900671ab: Pushed 
+aeec8eed6bcc: Pushed 
+ca15f642c9e2: Layer already exists 
+5c3f181a3c35: Already exists 
+4f4fb700ef54: Layer already exists 
+8283fb9e18a5: Layer already exists 
+080e8c502059: Layer already exists 
+b86f785312a4: Layer already exists 
+f35b149bbf18: Pushed 
+bd32f1e0fad5: Pushed 
+83761ca3a506: Layer already exists 
+eb04b50d467e: Pushed 
+latest: digest: sha256:d5c4d2f78ca3d75cd0a92cee0e1cf7aae61eed0c31f662419d1a178d13e0385e size: 856
+(base) ~/cr/pr/BIOS270-AU25 docker build --platform linux/amd64 -t dagnyr/bioinfo_example:latest .
+
+[+] Building 0.0s (1/1) FINISHED                                               docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 2B                                                             0.0s
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+(base) ~/cr/pr/BIOS270-AU25 docker build --platform linux/amd64 -t dagnyr/bioinfo_example  17:39:39
+ERROR: docker: 'docker buildx build' requires 1 argument
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Run 'docker buildx build --help' for more information
+(base) ~/cr/pr/BIOS270-AU25 docker manifest inspect dagnyr/bioinfo_example:latest | grep architecture
+
+            "architecture": "arm64",
+            "architecture": "unknown",
+(base) ~/cr/pr/BIOS270-AU25 docker build --platform linux/amd64 -t bioinfo_example .       17:40:33
+[+] Building 0.0s (1/1) FINISHED                                               docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 2B                                                             0.0s
+ERROR: failed to build: failed to solve: failed to read dockerfile: open Dockerfile: no such file or directory
+(base) ~/cr/pr/BIOS270-AU25 cd Environment                                                 17:40:52
+(base) ~/cr/pr/BIOS270-AU25/Environment docker build --platform linux/amd64 -t bioinfo_example .    [+] Building 138.2s (14/14) FINISHED                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 2.15kB                                                         0.0s
+ => [internal] load metadata for docker.io/mambaorg/micromamba:jammy                           1.3s
+ => [auth] mambaorg/micromamba:pull token for registry-1.docker.io                             0.0s
+ => [internal] load .dockerignore                                                              0.0s
+ => => transferring context: 316B                                                              0.0s
+ => [1/9] FROM docker.io/mambaorg/micromamba:jammy@sha256:210b5453f73baf5dce1f72ec269564c11fa  1.5s
+ => => resolve docker.io/mambaorg/micromamba:jammy@sha256:210b5453f73baf5dce1f72ec269564c11fa  0.0s
+ => => sha256:80339ac7a59a8a8fd8df2384a0a679da7e1ac2a2a313ee2718f66f1d98866786 346B / 346B     0.1s
+ => => sha256:9e5bc5fca7f48ca8a4f30df7f671fe7bae1bf352ae38a1292bd673b32417f638 646B / 646B     0.2s
+ => => sha256:4baa4f6d6b689a205a0145fb1567825803339cc43fff5cd200782511bc43f8fd 683B / 683B     0.3s
+ => => sha256:7b347450f4b2cc62786443c07e6a3ff84c5badf0dc24a1465f0bd5214e68d69a 215B / 215B     0.4s
+ => => sha256:96d662ab10f4ce27c36fb393dbfefc5a6a3775da215b28130c10907933afd 22.59kB / 22.59kB  0.2s
+ => => sha256:da88a7ccd34d79acc0ed5064029dcbd479ef6178008beb11abf2bed1b8616d72 284B / 284B     0.2s
+ => => sha256:c1e66c682edeae8c246852bb69a1d50605a354f4b7e7c3a62c181ed7d98ae5e8 525B / 525B     0.1s
+ => => sha256:f0deaee318d51630a9909e748303ab7c06cb4f5d94e382a0d84b3567b389f8b 6.20MB / 6.20MB  0.3s
+ => => sha256:6414378b647780fee8fd903ddb9541d134a1947ce092d08bdeb23a54cb368 29.54MB / 29.54MB  0.6s
+ => => extracting sha256:6414378b647780fee8fd903ddb9541d134a1947ce092d08bdeb23a54cb3684ac      0.3s
+ => => extracting sha256:13e85b259fdf3af66004c6f1d8fc9a724dbe2f0412542ef92797314dd6a27235      0.0s
+ => => extracting sha256:f0deaee318d51630a9909e748303ab7c06cb4f5d94e382a0d84b3567b389f8b1      0.1s
+ => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1      0.0s
+ => => extracting sha256:c1e66c682edeae8c246852bb69a1d50605a354f4b7e7c3a62c181ed7d98ae5e8      0.0s
+ => => extracting sha256:da88a7ccd34d79acc0ed5064029dcbd479ef6178008beb11abf2bed1b8616d72      0.0s
+ => => extracting sha256:96d662ab10f4ce27c36fb393dbfefc5a6a3775da215b28130c10907933afd5d1      0.0s
+ => => extracting sha256:7b347450f4b2cc62786443c07e6a3ff84c5badf0dc24a1465f0bd5214e68d69a      0.0s
+ => => extracting sha256:4baa4f6d6b689a205a0145fb1567825803339cc43fff5cd200782511bc43f8fd      0.0s
+ => => extracting sha256:9e5bc5fca7f48ca8a4f30df7f671fe7bae1bf352ae38a1292bd673b32417f638      0.0s
+ => => extracting sha256:80339ac7a59a8a8fd8df2384a0a679da7e1ac2a2a313ee2718f66f1d98866786      0.0s
+ => [internal] load build context                                                              0.0s
+ => => transferring context: 12.99kB                                                           0.0s
+ => [2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certifica  31.5s
+ => [3/9] RUN curl -fsSL https://rclone.org/install.sh | bash                                  5.9s 
+ => [4/9] RUN curl -fsSL https://code-server.dev/install.sh | bash                             5.4s 
+ => [5/9] WORKDIR /workspace                                                                   0.0s 
+ => [6/9] COPY --chown=mambauser:mambauser . /workspace/                                       0.0s 
+ => [7/9] RUN echo "Downloading example FASTA from: https://raw.githubusercontent.com/biopyth  0.5s 
+ => [8/9] RUN micromamba create -y -n "bioinfo_example" -f /workspace/bioinfo_example.yaml &  91.3s 
+ => ERROR [9/9] RUN python /workspace/scripts/python_example.py &&     python /workspace/scri  0.7s 
+------                                                                                              
+ > [9/9] RUN python /workspace/scripts/python_example.py &&     python /workspace/scripts/rpy2_example.py &&     Rscript /workspace/scripts/r_example.R     && echo "All example scripts ran successfully!":                                                                                                
+0.677 python: can't open file '/workspace/scripts/python_example.py': [Errno 2] No such file or directory
+------
+Dockerfile:44
+--------------------
+  43 |     # Run example scripts to test the environment
+  44 | >>> RUN python /workspace/scripts/python_example.py && \
+  45 | >>>     python /workspace/scripts/rpy2_example.py && \
+  46 | >>>     Rscript /workspace/scripts/r_example.R \
+  47 | >>>     && echo "All example scripts ran successfully!"
+  48 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/usr/local/bin/_dockerfile_shell.sh python /workspace/scripts/python_example.py &&     python /workspace/scripts/rpy2_example.py &&     Rscript /workspace/scripts/r_example.R     && echo \"All example scripts ran successfully!\"" did not complete successfully: exit code: 2
+(base) ~/cr/pr/BIOS270-AU25/Environment docker build --platform linux/amd64 -t bioinfo_example .
+[+] Building 188.3s (14/14) FINISHED                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 2.15kB                                                         0.0s
+ => [internal] load metadata for docker.io/mambaorg/micromamba:jammy                           0.5s
+ => [internal] load .dockerignore                                                              0.0s
+ => => transferring context: 316B                                                              0.0s
+ => [1/9] FROM docker.io/mambaorg/micromamba:jammy@sha256:210b5453f73baf5dce1f72ec269564c11fa  0.0s
+ => => resolve docker.io/mambaorg/micromamba:jammy@sha256:210b5453f73baf5dce1f72ec269564c11fa  0.0s
+ => [internal] load build context                                                              0.0s
+ => => transferring context: 156.69kB                                                          0.0s
+ => CACHED [2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-cer  0.0s
+ => CACHED [3/9] RUN curl -fsSL https://rclone.org/install.sh | bash                           0.0s
+ => CACHED [4/9] RUN curl -fsSL https://code-server.dev/install.sh | bash                      0.0s
+ => CACHED [5/9] WORKDIR /workspace                                                            0.0s
+ => [6/9] COPY --chown=mambauser:mambauser . /workspace/                                       0.0s
+ => [7/9] RUN echo "Downloading example FASTA from: https://raw.githubusercontent.com/biopyth  0.4s
+ => [8/9] RUN micromamba create -y -n "bioinfo_example" -f /workspace/bioinfo_example.yaml &  93.0s 
+ => [9/9] RUN python /workspace/scripts/python_example.py &&     python /workspace/scripts/r  15.7s 
+ => exporting to image                                                                        78.6s 
+ => => exporting layers                                                                       78.5s 
+ => => exporting manifest sha256:d371a2be0bdd28c6ffb1e03a697b069368e4565d7541d889623ade8693c6  0.0s 
+ => => exporting config sha256:eb2b41473c4641a41fb02dd24d8b260289fe9d05368c2f188b68b163d654cb  0.0s 
+ => => exporting attestation manifest sha256:4f4895d4ba4051dcabadca00dd53527963cbb4fa894ee55c  0.0s 
+ => => exporting manifest list sha256:303c7d3710328a8391d63341dc4b8f1fa9dee5554865271273a06e7  0.0s 
+ => => naming to docker.io/library/bioinfo_example:latest                                      0.0s
+(base) ~/cr/pr/BIOS270-AU25/Environment docker tag bioinfo_example dagnyr/bioinfo_example2
+docker push dagnyr/bioinfo_example2
+Using default tag: latest
+The push refers to repository [docker.io/dagnyr/bioinfo_example2]
+c1e66c682ede: Pushed 
+64447affdbec: Pushed 
+6414378b6477: Pushed 
+13e85b259fdf: Mounted from dagnyr/bioinfo_example 
+80339ac7a59a: Pushed 
+3a64d14863d1: Pushed 
+7b347450f4b2: Pushed 
+4f4fb700ef54: Mounted from dagnyr/bioinfo_example 
+c7bb892f922c: Pushed 
+6f78fb5fc385: Pushing  182.5MB/1.294GB
+4baa4f6d6b68: Pushed 
+1150322c920b: Pushed 
+f0deaee318d5: Pushed 
+d686082e615f: Pushed 
+da88a7ccd34d: Pushed 
+96d662ab10f4: Pushed 
+9e5bc5fca7f4: Pushed 
+011343d456eb: Pushed 
+78dd72108df1: Pushing  185.6MB/246.4MB
+dc4e357a81fe: Pushed 
+^C%                                                                                                 (base) ~/cr/pr/BIOS270-AU25/Environment docker buildx create --name amd64builder --use     17:50:40
+docker buildx inspect --bootstrap
+
+amd64builder
+[+] Building 3.9s (1/1) FINISHED                                                                    
+ => [internal] booting buildkit                                                                3.9s
+ => => pulling image moby/buildkit:buildx-stable-1                                             3.3s
+ => => creating container buildx_buildkit_amd64builder0                                        0.6s
+Name:          amd64builder
+Driver:        docker-container
+Last Activity: 2025-12-08 01:52:08 +0000 UTC
+
+Nodes:
+Name:                  amd64builder0
+Endpoint:              desktop-linux
+Status:                running
+BuildKit daemon flags: --allow-insecure-entitlement=network.host
+BuildKit version:      v0.26.2
+Platforms:             linux/arm64, linux/amd64, linux/amd64/v2, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6
+Labels:
+ org.mobyproject.buildkit.worker.executor:         oci
+ org.mobyproject.buildkit.worker.hostname:         3637d2ba5696
+ org.mobyproject.buildkit.worker.network:          host
+ org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+ org.mobyproject.buildkit.worker.selinux.enabled:  false
+ org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+GC Policy rule#0:
+ All:            false
+ Filters:        type==source.local,type==exec.cachemount,type==source.git.checkout
+ Keep Duration:  48h0m0s
+ Max Used Space: 488.3MiB
+GC Policy rule#1:
+ All:            false
+ Keep Duration:  1440h0m0s
+ Reserved Space: 9.313GiB
+ Max Used Space: 93.13GiB
+ Min Free Space: 84.75GiB
+GC Policy rule#2:
+ All:            false
+ Reserved Space: 9.313GiB
+ Max Used Space: 93.13GiB
+ Min Free Space: 84.75GiB
+GC Policy rule#3:
+ All:            true
+ Reserved Space: 9.313GiB
+ Max Used Space: 93.13GiB
+ Min Free Space: 84.75GiB
+(base) ~/cr/pr/BIOS270-AU25/Environment docker buildx build \                              17:52:12
+  --platform linux/amd64 \
+  -t dagnyr/bioinfo_example:amd64 \
+  --push \
+  .
+
+[+] Building 626.9s (17/17) FINISHED                                  docker-container:amd64builder
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 2.15kB                                                         0.0s
+ => [internal] load metadata for docker.io/mambaorg/micromamba:jammy                           1.3s
+ => [auth] mambaorg/micromamba:pull token for registry-1.docker.io                             0.0s
+ => [internal] load .dockerignore                                                              0.0s
+ => => transferring context: 316B                                                              0.0s
+ => [1/9] FROM docker.io/mambaorg/micromamba:jammy@sha256:210b5453f73baf5dce1f72ec269564c11fa  1.5s
+ => => resolve docker.io/mambaorg/micromamba:jammy@sha256:210b5453f73baf5dce1f72ec269564c11fa  0.0s
+ => => sha256:80339ac7a59a8a8fd8df2384a0a679da7e1ac2a2a313ee2718f66f1d98866786 346B / 346B     0.1s
+ => => sha256:9e5bc5fca7f48ca8a4f30df7f671fe7bae1bf352ae38a1292bd673b32417f638 646B / 646B     0.2s
+ => => sha256:4baa4f6d6b689a205a0145fb1567825803339cc43fff5cd200782511bc43f8fd 683B / 683B     0.3s
+ => => sha256:7b347450f4b2cc62786443c07e6a3ff84c5badf0dc24a1465f0bd5214e68d69a 215B / 215B     0.4s
+ => => sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B       0.2s
+ => => sha256:96d662ab10f4ce27c36fb393dbfefc5a6a3775da215b28130c10907933afd 22.59kB / 22.59kB  0.2s
+ => => sha256:da88a7ccd34d79acc0ed5064029dcbd479ef6178008beb11abf2bed1b8616d72 284B / 284B     0.1s
+ => => sha256:c1e66c682edeae8c246852bb69a1d50605a354f4b7e7c3a62c181ed7d98ae5e8 525B / 525B     0.1s
+ => => sha256:f0deaee318d51630a9909e748303ab7c06cb4f5d94e382a0d84b3567b389f8b 6.20MB / 6.20MB  0.3s
+ => => sha256:13e85b259fdf3af66004c6f1d8fc9a724dbe2f0412542ef92797314dd6a 119.85kB / 119.85kB  0.1s
+ => => sha256:6414378b647780fee8fd903ddb9541d134a1947ce092d08bdeb23a54cb368 29.54MB / 29.54MB  0.5s
+ => => extracting sha256:6414378b647780fee8fd903ddb9541d134a1947ce092d08bdeb23a54cb3684ac      0.3s
+ => => extracting sha256:13e85b259fdf3af66004c6f1d8fc9a724dbe2f0412542ef92797314dd6a27235      0.0s
+ => => extracting sha256:f0deaee318d51630a9909e748303ab7c06cb4f5d94e382a0d84b3567b389f8b1      0.0s
+ => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1      0.0s
+ => => extracting sha256:c1e66c682edeae8c246852bb69a1d50605a354f4b7e7c3a62c181ed7d98ae5e8      0.0s
+ => => extracting sha256:da88a7ccd34d79acc0ed5064029dcbd479ef6178008beb11abf2bed1b8616d72      0.0s
+ => => extracting sha256:96d662ab10f4ce27c36fb393dbfefc5a6a3775da215b28130c10907933afd5d1      0.0s
+ => => extracting sha256:7b347450f4b2cc62786443c07e6a3ff84c5badf0dc24a1465f0bd5214e68d69a      0.0s
+ => => extracting sha256:4baa4f6d6b689a205a0145fb1567825803339cc43fff5cd200782511bc43f8fd      0.0s
+ => => extracting sha256:9e5bc5fca7f48ca8a4f30df7f671fe7bae1bf352ae38a1292bd673b32417f638      0.0s
+ => => extracting sha256:80339ac7a59a8a8fd8df2384a0a679da7e1ac2a2a313ee2718f66f1d98866786      0.0s
+ => [internal] load build context                                                              0.0s
+ => => transferring context: 264.66kB                                                          0.0s
+ => [2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certifica  32.6s
+ => [3/9] RUN curl -fsSL https://rclone.org/install.sh | bash                                  6.8s 
+ => [4/9] RUN curl -fsSL https://code-server.dev/install.sh | bash                             6.1s 
+ => [5/9] WORKDIR /workspace                                                                   0.0s 
+ => [6/9] COPY --chown=mambauser:mambauser . /workspace/                                       0.0s 
+ => [7/9] RUN echo "Downloading example FASTA from: https://raw.githubusercontent.com/biopyth  0.4s 
+ => [8/9] RUN micromamba create -y -n "bioinfo_example" -f /workspace/bioinfo_example.yaml &  95.5s 
+ => [9/9] RUN python /workspace/scripts/python_example.py &&     python /workspace/scripts/r  15.4s 
+ => exporting to image                                                                       467.2s 
+ => => exporting layers                                                                       77.6s 
+ => => exporting manifest sha256:3c13a28c31d1287ebc80be3bb1c36ccd4a06698a3d8a8b8b59cc55ea519a  0.0s 
+ => => exporting config sha256:7a437232427b7b9efa6477ffa4c2dba19dac10c9ee5b9a3d707a3006683ca7  0.0s 
+ => => exporting attestation manifest sha256:3750f2c30eaeb4eaa77b55902fcf6e587e6251194e85d5c9  0.0s 
+ => => exporting manifest list sha256:e399ca8a73e605907029e2145dde8f8343a085b6215f84b6190dd28  0.0s 
+ => => pushing layers                                                                        386.2s
+ => => pushing manifest for docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e60590702  3.4s
+ => [auth] dagnyr/bioinfo_example:pull,push token for registry-1.docker.io                     0.0s
+ => [auth] dagnyr/bioinfo_example:pull,push token for registry-1.docker.io                     0.0s
+(base) ~/cr/pr/BIOS270-AU25/Environment docker manifest inspect dagnyr/bioinfo_example:amd64 | grep architecture
+
+            "architecture": "amd64",
+            "architecture": "unknown",
+(base) ~/cr/pr/BIOS270-AU25/Environment FROM dagnyr/bioinfo_example:amd64                  18:04:09
+zsh: command not found: FROM
+(base) ~/cr/pr/BIOS270-AU25/Environment ls                                                 18:18:34
+bioinfo_example.yaml   Dockerfile             scripts
+colab_localruntime.png Environment.md
+(base) ~/cr/pr/BIOS270-AU25/Environment nano Dockerfile                                    18:19:37
+(base) ~/cr/pr/BIOS270-AU25/Environment nano NewDockerfile                                 18:20:42
+(base) ~/cr/pr/BIOS270-AU25/Environment nano NewDockerfile                                 18:23:16
+(base) ~/cr/pr/BIOS270-AU25/Environment nano Dockerfile                                    18:23:52
+(base) ~/cr/pr/BIOS270-AU25/Environment docker buildx build \                              17:52:12
+  --platform linux/amd64 \
+  -t dagnyr/bioinfo_example_v2:amd64 \
+  --push \
+  .
+ERROR: docker: 'docker buildx build' requires 1 argument
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Run 'docker buildx build --help' for more information
+zsh: command not found: --platform
+(base) ~/cr/pr/BIOS270-AU25/Environment docker buildx create --name amd64builder --use     17:50:40
+docker buildx inspect --bootstrap
+
+ERROR: existing instance for "amd64builder" but no append mode, specify the node name to make changes for existing instances
+Name:          amd64builder
+Driver:        docker-container
+Last Activity: 2025-12-08 01:52:43 +0000 UTC
+
+Nodes:
+Name:                  amd64builder0
+Endpoint:              desktop-linux
+Status:                running
+BuildKit daemon flags: --allow-insecure-entitlement=network.host
+BuildKit version:      v0.26.2
+Platforms:             linux/arm64, linux/amd64, linux/amd64/v2, linux/riscv64, linux/ppc64le, linux/s390x, linux/386, linux/arm/v7, linux/arm/v6
+Labels:
+ org.mobyproject.buildkit.worker.executor:         oci
+ org.mobyproject.buildkit.worker.hostname:         3637d2ba5696
+ org.mobyproject.buildkit.worker.network:          host
+ org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+ org.mobyproject.buildkit.worker.selinux.enabled:  false
+ org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+GC Policy rule#0:
+ All:            false
+ Filters:        type==source.local,type==exec.cachemount,type==source.git.checkout
+ Keep Duration:  48h0m0s
+ Max Used Space: 488.3MiB
+GC Policy rule#1:
+ All:            false
+ Keep Duration:  1440h0m0s
+ Reserved Space: 9.313GiB
+ Max Used Space: 93.13GiB
+ Min Free Space: 84.75GiB
+GC Policy rule#2:
+ All:            false
+ Reserved Space: 9.313GiB
+ Max Used Space: 93.13GiB
+ Min Free Space: 84.75GiB
+GC Policy rule#3:
+ All:            true
+ Reserved Space: 9.313GiB
+ Max Used Space: 93.13GiB
+ Min Free Space: 84.75GiB
+(base) ~/cr/pr/BIOS270-AU25/Environment docker buildx build \                              17:52:12
+  --platform linux/amd64 \
+  -t dagnyr/bioinfo_example_v2:amd64 \
+  --push \
+  .
+
+ERROR: docker: 'docker buildx build' requires 1 argument
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Run 'docker buildx build --help' for more information
+zsh: command not found: --platform
+(base) ~/cr/pr/BIOS270-AU25/Environment docker buildx build --platform linux/amd64 -t dagnyr/bioinfo_example_v2:amd64 --push .
+
+[+] Building 6.9s (7/7) FINISHED                                      docker-container:amd64builder
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 265B                                                           0.0s
+ => [internal] load metadata for docker.io/dagnyr/bioinfo_example:amd64                        0.9s
+ => [auth] dagnyr/bioinfo_example:pull token for registry-1.docker.io                          0.0s
+ => [internal] load .dockerignore                                                              0.0s
+ => => transferring context: 316B                                                              0.0s
+ => [1/3] FROM docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e605907029e2145dde8f83  0.0s
+ => => resolve docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e605907029e2145dde8f83  0.0s
+ => [2/3] RUN pip install parasail                                                             4.6s
+ => ERROR [3/3] RUN curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v  1.3s 
+------                                                                                              
+ > [3/3] RUN curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86      -o /usr/local/bin/reseek &&     chmod +x /usr/local/bin/reseek:                                
+0.876   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current               
+0.876                                  Dload  Upload   Total   Spent    Left  Speed                 
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+1.299 Warning: Failed to open the file /usr/local/bin/reseek: Permission denied
+  0  3687k   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+1.301 curl: (23) client returned ERROR on write of 1369 bytes
+------
+Dockerfile:5
+--------------------
+   4 |     
+   5 | >>> RUN curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86 \
+   6 | >>>      -o /usr/local/bin/reseek && \
+   7 | >>>     chmod +x /usr/local/bin/reseek
+   8 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/usr/local/bin/_dockerfile_shell.sh curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86      -o /usr/local/bin/reseek &&     chmod +x /usr/local/bin/reseek" did not complete successfully: exit code: 23
+(base) ~/cr/pr/BIOS270-AU25/Environment # Download reseek and install into /usr/local/bin  18:27:12
+RUN mkdir -p /usr/local/bin && \
+    chmod 755 /usr/local/bin && \
+    curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86 \
+        -o /tmp/reseek && \
+    chmod +x /tmp/reseek && \
+    mv /tmp/reseek /usr/local/bin/reseek
+
+zsh: command not found: #
+zsh: command not found: RUN
+(base) ~/cr/pr/BIOS270-AU25/Environment nano Dockerfile                                    18:28:35
+(base) ~/cr/pr/BIOS270-AU25/Environment docker buildx build --platform linux/amd64 -t dagnyr/bioinfo_example_v2:amd64 --push .
+
+[+] Building 0.7s (6/6) FINISHED                                      docker-container:amd64builder
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 359B                                                           0.0s
+ => [internal] load metadata for docker.io/dagnyr/bioinfo_example:amd64                        0.5s
+ => [internal] load .dockerignore                                                              0.0s
+ => => transferring context: 316B                                                              0.0s
+ => [1/3] FROM docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e605907029e2145dde8f83  0.0s
+ => => resolve docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e605907029e2145dde8f83  0.0s
+ => CACHED [2/3] RUN pip install parasail                                                      0.0s
+ => ERROR [3/3] RUN mkdir -p /usr/local/bin &&     chmod 755 /usr/local/bin &&     curl -L ht  0.2s
+------                                                                                              
+ > [3/3] RUN mkdir -p /usr/local/bin &&     chmod 755 /usr/local/bin &&     curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86         -o /tmp/reseek &&     chmod +x /tmp/reseek &&     mv /tmp/reseek /usr/local/bin/reseek:
+0.148 chmod: changing permissions of '/usr/local/bin': Operation not permitted
+------
+Dockerfile:5
+--------------------
+   4 |     
+   5 | >>> RUN mkdir -p /usr/local/bin && \
+   6 | >>>     chmod 755 /usr/local/bin && \
+   7 | >>>     curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86 \
+   8 | >>>         -o /tmp/reseek && \
+   9 | >>>     chmod +x /tmp/reseek && \
+  10 | >>>     mv /tmp/reseek /usr/local/bin/reseek
+  11 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/usr/local/bin/_dockerfile_shell.sh mkdir -p /usr/local/bin &&     chmod 755 /usr/local/bin &&     curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86         -o /tmp/reseek &&     chmod +x /tmp/reseek &&     mv /tmp/reseek /usr/local/bin/reseek" did not complete successfully: exit code: 1
+(base) ~/cr/pr/BIOS270-AU25/Environment nano Dockerfile                                    18:29:22
+(base) ~/cr/pr/BIOS270-AU25/Environment docker buildx build --platform linux/amd64 -t dagnyr/bioinfo_example_v2:amd64 --push .
+[+] Building 0.6s (6/6) FINISHED                                      docker-container:amd64builder
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 343B                                                           0.0s
+ => [internal] load metadata for docker.io/dagnyr/bioinfo_example:amd64                        0.4s
+ => [internal] load .dockerignore                                                              0.0s
+ => => transferring context: 316B                                                              0.0s
+ => [1/3] FROM docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e605907029e2145dde8f83  0.0s
+ => => resolve docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e605907029e2145dde8f83  0.0s
+ => CACHED [2/3] RUN pip install parasail                                                      0.0s
+ => ERROR [3/3] RUN mkdir -p /opt/reseek &&     curl -L https://github.com/rcedgar/reseek/rel  0.1s
+------                                                                                              
+ > [3/3] RUN mkdir -p /opt/reseek &&     curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86         -o /opt/reseek/reseek &&     chmod +x /opt/reseek/reseek:
+0.122 mkdir: cannot create directory ‘/opt/reseek’: Permission denied
+------
+Dockerfile:5
+--------------------
+   4 |     
+   5 | >>> RUN mkdir -p /opt/reseek && \
+   6 | >>>     curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86 \
+   7 | >>>         -o /opt/reseek/reseek && \
+   8 | >>>     chmod +x /opt/reseek/reseek
+   9 |     
+--------------------
+ERROR: failed to build: failed to solve: process "/usr/local/bin/_dockerfile_shell.sh mkdir -p /opt/reseek &&     curl -L https://github.com/rcedgar/reseek/releases/download/v2.7/reseek-v2.7-linux-x86         -o /opt/reseek/reseek &&     chmod +x /opt/reseek/reseek" did not complete successfully: exit code: 1
+(base) ~/cr/pr/BIOS270-AU25/Environment nano Dockerfile                                    18:30:27
+(base) ~/cr/pr/BIOS270-AU25/Environment nano Dockerfile                                    18:31:27
+(base) ~/cr/pr/BIOS270-AU25/Environment docker buildx build --platform linux/amd64 -t dagnyr/bioinfo_example_v2:amd64 --push .
+
+[+] Building 22.5s (10/10) FINISHED                                   docker-container:amd64builder
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 373B                                                           0.0s
+ => [internal] load metadata for docker.io/dagnyr/bioinfo_example:amd64                        0.7s
+ => [auth] dagnyr/bioinfo_example:pull token for registry-1.docker.io                          0.0s
+ => [internal] load .dockerignore                                                              0.0s
+ => => transferring context: 316B                                                              0.0s
+ => [1/3] FROM docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e605907029e2145dde8f83  0.0s
+ => => resolve docker.io/dagnyr/bioinfo_example:amd64@sha256:e399ca8a73e605907029e2145dde8f83  0.0s
+ => CACHED [2/3] RUN pip install parasail                                                      0.0s
+ => [3/3] RUN mkdir -p $HOME/bin &&     curl -L https://github.com/rcedgar/reseek/releases/do  0.8s
+ => exporting to image                                                                        20.9s
+ => => exporting layers                                                                        1.4s
+ => => exporting manifest sha256:9a0a29078e2655818727a7e52704f16676d77386b662e7e7d7f1174d66e5  0.0s 
+ => => exporting config sha256:3efb9439b2429e220e4f81ad00478927b5a6ded0d62d170d98a261a6671a51  0.0s 
+ => => exporting attestation manifest sha256:e91f0a0be10b56aa3beadcf5fc73e346bf67701f65ffee4f  0.0s
+ => => exporting manifest list sha256:60ad0f6a11a62a37577583240a7bb58cae0f5b8e55e978e084f83d7  0.0s
+ => => pushing layers                                                                         16.1s
+ => => pushing manifest for docker.io/dagnyr/bioinfo_example_v2:amd64@sha256:60ad0f6a11a62a37  3.3s
+ => [auth] dagnyr/bioinfo_example_v2:pull,push token for registry-1.docker.io                  0.0s
+ => [auth] dagnyr/bioinfo_example:pull dagnyr/bioinfo_example_v2:pull,push token for registry  0.0s
+
+ 1 warning found (use docker --debug to expand):
+ - UndefinedVar: Usage of undefined variable '$HOME' (line 12)
+(base) ~/cr/pr/BIOS270-AU25/Environment                                                    18:32:03
