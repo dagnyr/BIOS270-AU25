@@ -18,13 +18,28 @@ samples_ch = samplesheet_ch.splitCsv(header:true).map { row ->
     tuple(row.sample.trim(), file(row.read1.trim(), absolute: true), file(row.read2.trim(), absolute:true), row.condition.trim())
 }
 
-
 // -------------------- Workflow --------------------
 
 workflow {
+
+    def data
+
+    if( params.index ) {
+        data = Channel.value( file(params.index) )
+    }
+
+    else if( params.transcriptome ) {
+        data = SALMON_INDEX( file(params.transcriptome) )
+    }
+    else {
+    error """
+    no salmon index or transcriptome provided
+    """
+    }
+
     FASTQC(samples_ch)
     trimmed_ch = TRIMGALORE(samples_ch)
-    quant_ch   = SALMON(trimmed_ch, params.index)
+    quant_ch   = SALMON(trimmed_ch, data)
 
     if( params.run_deseq ) {
         // Collect all Salmon outputs into a map {sample: quant_path}
@@ -32,8 +47,8 @@ workflow {
         quant_paths_ch = quant_ch
             .map { sample, quant, cond -> "${sample},${quant}" }
             .collectFile(
-                name: "quant_paths.csv", 
-                newLine: true, 
+                name: "quant_paths.csv",
+                newLine: true,
                 seed: "sample,quant_path"  // This adds the header as the first line
             )
         DESEQ2(quant_paths_ch, samplesheet_ch)
