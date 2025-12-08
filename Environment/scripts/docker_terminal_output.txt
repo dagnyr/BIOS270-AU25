@@ -1,0 +1,161 @@
+Last login: Thu Nov 13 14:14:39 on ttys004
+(base) ~ docker login                                                                      14:40:01
+zsh: command not found: docker
+(base) ~ docker login                                                                      14:40:07
+Authenticating with existing credentials... [Username: dagnyr]
+
+i Info → To login with a different account, run 'docker logout' followed by 'docker login'
+
+
+Stored credentials invalid or expired
+
+USING WEB-BASED LOGIN
+
+i Info → To sign in with credentials on the command line, use 'docker login -u <username>'
+         
+
+Your one-time device confirmation code is: BXNK-KZRM
+Press ENTER to open your browser or submit your device code here: https://login.docker.com/activate
+
+Waiting for authentication in the browser…
+Error response from daemon: Get "https://registry-1.docker.io/v2/": unauthorized: email must be verified before using account
+(base) ~ docker login                                                                      14:43:57
+Authenticating with existing credentials... [Username: dagnyr]
+
+i Info → To login with a different account, run 'docker logout' followed by 'docker login'
+
+
+Login Succeeded
+(base) ~ cd cr                                                                             14:45:18
+(base) ~/cr cd pr                                                                          14:46:37
+(base) ~/cr/pr ?kata                                                                       14:46:40
+zsh: no matches found: ?kata
+(base) ~/cr/pr kata                                                                        14:46:47
+Error: valid sub-commands for command kata are: adcopu, beautify, delete, festdi, make, match, name, rename, rewrite, use -h or --help to check more detailed help info
+
+
+  kata v0.1.0
+
+
+
+Usage
+
+  kata <command>
+
+Commands
+
+  adcopu                                          git add, commit, and push.
+
+  beautify                                        Beautify .jl and web files.
+
+  delete                                          Delete bad files.
+
+  festdi                                          git fetch, status, and diff.
+
+  make                                            Make a package or project.
+
+  match                                           Match a package to its template.
+
+  name                                            Name files automatically.
+
+  rename                                          Rename files and directories.
+
+  rewrite                                         Rewrite files.
+
+
+
+Flags
+
+  -h, --help                                      Print this help message.
+  --version                                       Print version.
+
+(base) ~/cr/pr kata make bios270.pr                                                        14:46:52
+(base) ~/cr/pr cd bios270.pr                                                               14:47:09
+(base) ~/cr/pr/bios270.pr git clone bios270                                                14:47:17
+fatal: repository 'bios270' does not exist
+(base) ~/cr/pr/bios270.pr git clone https://github.com/dagnyr/BIOS270-AU25                 14:47:24
+Cloning into 'BIOS270-AU25'...
+remote: Enumerating objects: 131, done.
+remote: Counting objects: 100% (39/39), done.
+remote: Compressing objects: 100% (30/30), done.
+remote: Total 131 (delta 18), reused 9 (delta 9), pack-reused 92 (from 1)
+Receiving objects: 100% (131/131), 571.38 KiB | 4.14 MiB/s, done.
+Resolving deltas: 100% (24/24), done.
+(base) ~/cr/pr/bios270.pr cd pr                                                            14:47:48
+cd: no such file or directory: pr
+(base) ~/cr/pr/bios270.pr cd ..                                                            14:48:47
+(base) ~/.Trash cd ..                                                                      14:48:51
+(base) ~ ..                                                                                14:48:55
+(base) /Users cd dr                                                                        14:48:56
+(base) ~ cd cr                                                                             14:49:00
+(base) ~/cr cd pr                                                                          14:49:07
+(base) ~/cr/pr ls                                                                          14:49:09
+backup                      gammadelta.pr               README.md
+BIOS270-AU25                homologene_implementation.R samap.py
+class_II_project            ImmuneReceptor.pr           smaapa.ipynb
+class_II_project copy       pipeline.py
+(base) ~/cr/pr cd BIOS270-AU25                                                             14:49:10
+(base) ~/cr/pr/BIOS270-AU25 ls                                                             14:49:14
+Data        Environment HW          Pipeline    README.md   Setup       Writeups
+(base) ~/cr/pr/BIOS270-AU25 cd Environment                                                 14:49:18
+(base) ~/cr/pr/BIOS270-AU25/Environment docker build -t . bioinfo_example                  14:49:24
+[+] Building 0.0s (0/0)                                                        docker:desktop-linux
+ERROR: failed to build: invalid tag ".": invalid reference format
+(base) ~/cr/pr/BIOS270-AU25/Environment docker build -t . bioinfo_example.yaml             14:49:28
+[+] Building 0.0s (0/0)                                                        docker:desktop-linux
+ERROR: failed to build: invalid tag ".": invalid reference format
+(base) ~/cr/pr/BIOS270-AU25/Environment ls                                                 14:49:41
+bioinfo_example.yaml   Dockerfile             scripts
+colab_localruntime.png Environment.md
+(base) ~/cr/pr/BIOS270-AU25/Environment docker build -t bioinfo_example .                  14:50:23
+
+[+] Building 545.5s (15/15) FINISHED                                           docker:desktop-linux
+ => [internal] load build definition from Dockerfile                                           0.0s
+ => => transferring dockerfile: 2.15kB                                                         0.0s
+ => [internal] load metadata for docker.io/mambaorg/micromamba:jammy                           1.4s
+ => [auth] mambaorg/micromamba:pull token for registry-1.docker.io                             0.0s
+ => [internal] load .dockerignore                                                              0.0s
+ => => transferring context: 316B                                                              0.0s
+ => [1/9] FROM docker.io/mambaorg/micromamba:jammy@sha256:210b5453f73baf5dce1f72ec269564c11fa  2.1s
+ => => resolve docker.io/mambaorg/micromamba:jammy@sha256:210b5453f73baf5dce1f72ec269564c11fa  0.0s
+ => => sha256:64efc2bae850d7e3698c8aef37b56618c62a00457e4dc781eef86f999efee54b 346B / 346B     0.1s
+ => => sha256:250048be559612951bf236a492643b4889a4847cc6ba182119c533f2a95c8912 646B / 646B     0.2s
+ => => sha256:b86f785312a4d7d83928e8b315f08e8ed98bf848e8dce2625d959c67b51515a2 683B / 683B     0.3s
+ => => sha256:eb04b50d467ecbdccba96e6221e172fb286f968520303ef631edac68187be66c 213B / 213B     0.3s
+ => => sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B       0.2s
+ => => sha256:85052153e347a95cde3bff57d9cc06e83b657bafe73704786c259d21abef7 22.82kB / 22.82kB  0.1s
+ => => sha256:83761ca3a5067e1e39833f83d5bf5e2a9b0a46ca107c70373e558bd28327cda4 283B / 283B     0.2s
+ => => sha256:b6c932b0141c847ca681810aae21f3369d76cd4e47d6c9f90ab118356eb7b308 525B / 525B     0.1s
+ => => sha256:ff945240a25ad9f7086d896a6f0f94b36e3905cc495e2c28591071b55b8d296 7.87MB / 7.87MB  0.5s
+ => => sha256:13e85b259fdf3af66004c6f1d8fc9a724dbe2f0412542ef92797314dd6a 119.85kB / 119.85kB  0.2s
+ => => sha256:a186900671ab62e1dea364788f4e84c156e1825939914cfb5a6770be2b58b 27.36MB / 27.36MB  1.2s
+ => => extracting sha256:a186900671ab62e1dea364788f4e84c156e1825939914cfb5a6770be2b58b4da      0.3s
+ => => extracting sha256:13e85b259fdf3af66004c6f1d8fc9a724dbe2f0412542ef92797314dd6a27235      0.0s
+ => => extracting sha256:ff945240a25ad9f7086d896a6f0f94b36e3905cc495e2c28591071b55b8d2963      0.1s
+ => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1      0.0s
+ => => extracting sha256:b6c932b0141c847ca681810aae21f3369d76cd4e47d6c9f90ab118356eb7b308      0.0s
+ => => extracting sha256:83761ca3a5067e1e39833f83d5bf5e2a9b0a46ca107c70373e558bd28327cda4      0.0s
+ => => extracting sha256:85052153e347a95cde3bff57d9cc06e83b657bafe73704786c259d21abef7a66      0.0s
+ => => extracting sha256:eb04b50d467ecbdccba96e6221e172fb286f968520303ef631edac68187be66c      0.0s
+ => => extracting sha256:b86f785312a4d7d83928e8b315f08e8ed98bf848e8dce2625d959c67b51515a2      0.0s
+ => => extracting sha256:250048be559612951bf236a492643b4889a4847cc6ba182119c533f2a95c8912      0.0s
+ => => extracting sha256:64efc2bae850d7e3698c8aef37b56618c62a00457e4dc781eef86f999efee54b      0.0s
+ => [internal] load build context                                                              0.0s
+ => => transferring context: 107.46kB                                                          0.0s
+ => [2/9] RUN apt-get update && apt-get install -y --no-install-recommends curl ca-certificat  8.1s
+ => [3/9] RUN curl -fsSL https://rclone.org/install.sh | bash                                  5.8s
+ => [4/9] RUN curl -fsSL https://code-server.dev/install.sh | bash                             7.1s 
+ => [5/9] WORKDIR /workspace                                                                   0.0s 
+ => [6/9] COPY --chown=mambauser:mambauser . /workspace/                                       0.0s 
+ => [7/9] RUN echo "Downloading example FASTA from: https://raw.githubusercontent.com/biopyth  0.3s 
+ => [8/9] RUN micromamba create -y -n "bioinfo_example" -f /workspace/bioinfo_example.yaml &  57.6s 
+ => [9/9] RUN python /workspace/scripts/python_example.py &&     python /workspace/scripts/rp  9.1s 
+ => exporting to image                                                                        83.5s 
+ => => exporting layers                                                                       65.2s 
+ => => exporting manifest sha256:67f5c9eaefa55ef2231c4a497bb90b9893866b30195551ebbcf720d97007  0.0s 
+ => => exporting config sha256:ba66fad94e813ef476484b8e46ada1009defb9107b98e2d12105379a686d41  0.0s 
+ => => exporting attestation manifest sha256:e41840b130241c5e6aeda8ae7a7386e1ca52495f0f05648d  0.0s 
+ => => exporting manifest list sha256:d5c4d2f78ca3d75cd0a92cee0e1cf7aae61eed0c31f662419d1a178  0.0s 
+ => => naming to docker.io/library/bioinfo_example:latest                                      0.0s
+ => => unpacking to docker.io/library/bioinfo_example:latest                                  18.2s
+(base) ~/cr/pr/BIOS270-AU25/Environment                                                    14:59:35
