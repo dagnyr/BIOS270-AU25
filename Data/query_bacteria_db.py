@@ -16,16 +16,15 @@ class BacteriaDatabase:
         self.conn = sqlite3.connect(db_path)
 
     def get_all_record_ids(self):
-        #TODO: write the query to get all unique record_id from the gff table
-        query = #TODO
+        query = "SELECT DISTINCT record_id FROM gff"
         df = self.query(query)
         return df["record_id"].dropna().tolist()
-    
+
     def get_protein_ids_from_record_id(self, record_id):
-        #TODO: write function to return list of protein_ids for a given record_id
-        query = #TODO
-        df = self.query(query)
+        query = "SELECT protein_id FROM gff WHERE record_id = ?"
+        df = pd.read_sql(query, self.conn, params=(record_id,))
         return df["protein_id"].dropna().tolist()
+
 
     def index_record_ids(self):
         query = "CREATE INDEX IF NOT EXISTS record_id_index ON gff(record_id)"
@@ -47,9 +46,20 @@ def write_protein_ids(protein_ids, output_path):
 if __name__ == "__main__":
     args = parse_args()
     db = BacteriaDatabase(args.database_path)
+    def get_all_record_ids(self):
+        # get all unique record_ids from gff
+        query = "SELECT DISTINCT record_id FROM gff"
+        df = self.query(query)
+        return df["record_id"].dropna().tolist()
+
+    def get_protein_ids_from_record_id(self, record_id):
+        # protein_ids for this record_id
+        query = "SELECT protein_id FROM gff WHERE record_id = ?"
+        df = pd.read_sql(query, self.conn, params=(record_id,))
+        return df["protein_id"].dropna().tolist()
     print("Total number of record ids: ", len(db.get_all_record_ids()))
     all_protein_ids = []
-    # db.index_record_ids()
+    db.index_record_ids()
     tic = time.time()
     for i, record_id in enumerate(db.get_all_record_ids()):
         protein_ids = db.get_protein_ids_from_record_id(record_id)

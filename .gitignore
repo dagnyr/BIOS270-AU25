@@ -1,3 +1,5 @@
 .DS_Store
 bacteria.db
 *.db
+*.err
+*.out
