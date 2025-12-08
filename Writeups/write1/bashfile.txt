@@ -1,0 +1,159 @@
+Last login: Fri Dec  5 23:40:24 on ttys010
+(base) ~ ssh dagnyr@rice.stanford.edu                                                      16:22:05
+The authenticity of host 'rice.stanford.edu (171.67.96.124)' can't be established.
+ED25519 key fingerprint is SHA256:bKb1Znir/1tOg+TMyALDYWeK0lclsulriDN8aOvWteU.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:1: login.farmshare.stanford.edu
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added 'rice.stanford.edu' (ED25519) to the list of known hosts.
+dagnyr@rice.stanford.edu's password: 
+(dagnyr@rice.stanford.edu) Duo two-factor login for dagnyr
+
+Enter a passcode or select one of the following options:
+
+ 1. Duo Push to XXX-XXX-5113
+ 2. Phone call to XXX-XXX-5113
+ 3. SMS passcodes to XXX-XXX-5113
+
+Passcode or option (1-3): 1
+Success. Logging you in...
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.14.0-32-generic x86_64)
+
+Stanford Research Computing (https://srcc.stanford.edu/) -----------------------
+
+FarmShare (https://docs.farmshare.stanford.edu/)
+
+For use in coursework and unsponsored research by authorized persons only, and
+subject to University policies on acceptable use and standards of behavior.
+FarmShare is NOT approved for use with high-risk data, including protected
+health information and personally identifiable information.
+
+For support contact srcc-support@stanford.edu,
+or join #farmshare-users (https://srcc.slack.com/)
+
+--------------------------------------------------------------------------------
+
+ System information as of Sun Dec  7 16:23:50 PST 2025
+
+  System load:  1.7                 Swap usage:  54%      Users logged in: 0
+  Usage of /:   17.9% of 108.98GB   Temperature: 83.0 C
+  Memory usage: 37%                 Processes:   2167
+
+  => There are 402 zombie processes.
+
+Last login: Fri Dec  5 23:13:12 2025 from 73.202.251.13
+dagnyr@rice-02:~$ micromamba
+Version: 2.3.3 
+
+
+
+/home/users/dagnyr/envs/micromamba/micromamba [OPTIONS] [SUBCOMMAND]
+
+
+OPTIONS:
+  -h,     --help              Print this help message and exit 
+          --version           
+
+Configuration options:
+          --rc-file FILE1 FILE2... 
+                              Paths to the configuration files to use 
+          --no-rc             Disable the use of configuration files 
+          --no-env            Disable the use of environment variables 
+
+Global options:
+  -v,     --verbose           Set verbosity (higher verbosity with multiple -v, e.g. -vvv) 
+          --log-level ENUM:value in {critical->5,debug->1,error->4,info->2,off->6,trace->0,warning->3} OR {5,1,4,2,6,0,3} 
+                              Set the log level 
+  -q,     --quiet             Set quiet mode (print less output) 
+  -y,     --yes               Automatically answer yes on prompted questions 
+          --json              Report all output as json 
+          --offline           Force use cached repodata 
+          --dry-run           Only display what would have been done 
+          --download-only     Only download and extract packages, do not link them into 
+                              environment. 
+          --experimental      Enable experimental features 
+          --use-uv            Whether to use uv for installing pip dependencies. Defaults to 
+                              false. 
+
+Prefix options:
+  -r,     --root-prefix PATH  Path to the root prefix 
+  -p,     --prefix PATH       Path to the target prefix 
+          --relocate-prefix PATH 
+                              Path to the relocation prefix 
+  -n,     --name NAME         Name of the target prefix 
+
+SUBCOMMANDS:
+  shell                       Generate shell init scripts 
+  create                      Create new environment 
+  install                     Install packages in active environment 
+  update                      Update packages in active environment 
+  self-update                 Update micromamba 
+  repoquery                   Find and analyze packages in active environment or channels 
+  remove, uninstall           Remove packages from active environment 
+  list                        List packages in active environment 
+  package                     Extract a package or bundle files into an archive 
+  clean                       Clean package cache 
+  config                      Configuration of micromamba 
+  info                        Information about micromamba 
+  constructor                 Commands to support using micromamba in constructor 
+  env                         See `mamba/micromamba env --help` 
+  activate                    Activate an environment 
+  run                         Run an executable in an environment 
+  ps                          Show, inspect or kill running processes 
+  auth                        Login or logout of a given host 
+  search                      Find packages in active environment or channels 
+                              This is equivalent to `repoquery search` command 
+
+dagnyr@rice-02:~$ micromamba  --version
+2.3.3
+dagnyr@rice-02:~$ nano ~/.bashrc
+
+  GNU nano 7.2                         /home/users/dagnyr/.bashrc                                   
+# Basic shortcuts
+# -----------------------------
+alias reload="source ~/.bashrc"
+alias l='ls -ltrh'
+alias ..="cd .."
+
+# -----------------------------
+# Quick navigation
+# -----------------------------
+alias cdc="cd $CLASS"
+
+# -----------------------------
+# Git and file utilities
+# -----------------------------
+alias gs="git status"
+alias usage='du -h -d1'
+alias space='df -h'
+
+# -----------------------------
+# SLURM queue and job utilities
+# -----------------------------
+alias qu='squeue -u $USER'
+
+checkstatus() {
+   sacct -j "$1" --format=JobID,JobName,State,Elapsed,MaxRSS,MaxVMSize,CPUTime,NodeList%20
+}
+
+# -----------------------------
+# Interactive job launchers
+# -----------------------------
+alias small='srun --pty -p normal --mem=12G --cpus-per-task=2 --time=2:00:00 bash'
+alias med='srun --pty -p normal --mem=32G --cpus-per-task=4 --time=2:00:00 bash'
+alias large='srun --pty -p normal --mem=64G --cpus-per-task=8 --time=4:00:00 bash'
+alias gpu='srun --pty -p gpu --gres=gpu:1 --mem=32G --cpus-per-task=4 --time=2:00:00 bash'
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/users/dagnyr/envs/micromamba/micromamba';
+export MAMBA_ROOT_PREFIX='/scratch/users/dagnyr/envs/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/nu>
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
