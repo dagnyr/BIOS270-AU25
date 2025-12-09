@@ -47,7 +47,7 @@ Run the app locally to make sure everything works as expected. ✅
 
 ---
 
-## Part 2 - Multiple Choice Questions
+## Part 2 - Multiple Choice Questions ✅
 
 ### Q1.  
 In Streamlit, what happens when you define and click the defined button:
@@ -55,9 +55,9 @@ In Streamlit, what happens when you define and click the defined button:
 align_clicked = st.button("▶️ Align sequences")
 ```
 
-- [ ] The app runs this line only once when first loaded and won't rerun it. ❌ 
-- [ ] The app waits (pauses) until the user clicks the button before continuing. ❌
-- [] When the user clicks the button, Streamlit reruns the entire script from the top, and `align_clicked` becomes `True` for that run, allowing the code inside `if align_clicked:` to execute. ✅
+- [❌] The app runs this line only once when first loaded and won't rerun it. 
+- [❌] The app waits (pauses) until the user clicks the button before continuing.
+- [✅] When the user clicks the button, Streamlit reruns the entire script from the top, and `align_clicked` becomes `True` for that run, allowing the code inside `if align_clicked:` to execute.
 
 ---
 
@@ -66,18 +66,18 @@ Why do we use:
 ```python
 st.plotly_chart(fig, use_container_width=True)
 ```
-- [ ] It makes the chart automatically scale to fit the available page width.  ✅ 
-- [ ] It forces Streamlit to display a smaller chart. ❌
-- [ ] It changes how Plotly computes data ranges. ❌
+- [✅] It makes the chart automatically scale to fit the available page width.
+- [❌] It forces Streamlit to display a smaller chart.
+- [❌] It changes how Plotly computes data ranges.
 
 ---
 
 ## Part 3 — Share Your Streamlit App Online
 
-### Step 1. Push your code to GitHub
+### Step 1. Push your code to GitHub ✅
 Push your modified `app.py`.
 
-### Step 2. Deploy to Streamlit Cloud
+### Step 2. Deploy to Streamlit Cloud ✅
 1. Go to [https://streamlit.io/cloud](https://streamlit.io/cloud)  
 2. Click **“Deploying” (Free)** → Connect your GitHub account.  
 3.  **Create App** -> Select your repo, branch (e.g. `main`), and main file (`app.py`), modify your `domain` name.  
@@ -86,7 +86,7 @@ Push your modified `app.py`.
    https://bios270-au25-hw2-example.streamlit.app/
 
 
-### Step 3. Test and Submit
+### Step 3. Test and Submit ✅
 Once your app is running:
 - Test that it loads properly and alignment works.  
 - Make sure the histogram and logo you inserted in **Part 1** appear.  
@@ -95,6 +95,6 @@ Then, copy and paste your **Streamlit Cloud URL** below
 
 ```
 Streamlit App URL:
-https://____________________________________
+[https://____________________________________](https://bios270-au25-swag.streamlit.app/)
 ```
 Submit the `HW2.md` URL to **Canvas**.
