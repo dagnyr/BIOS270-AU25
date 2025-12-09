@@ -1,0 +1,116 @@
+#!/usr/bin/env python3
+
+import csv
+from collections import defaultdict
+import pandas as pd
+import matplotlib.pyplot as plt
+
+FAA_FILE = "/path/to/assembly.faa"
+CLUSTER_FILE = "/path/to/cluster.tsv"
+OUT_TSV = "paralogs.tsv"
+OUT_PNG = "paralogs_top10.png"
+
+def protein_names(faa):
+    protein_info = {} # make dictionary
+
+    with open(faa, "r") as names:
+        for line in names:
+            if line.startswith(">"): # new seq line in fasta bvegins with >
+                header = line[1:].strip()
+                parts = header.split()
+                protein_id = parts[0]
+                
+                if len(parts) > 1:
+                    protein_name = " ".join(parts[1:])
+                
+                else:
+                    protein_name = "None"
+                
+                protein_info[protein_id] = protein_name
+
+    return protein_info
+
+
+def load_clusters(clusters):
+    clusters = defaultdict(list)
+
+    with open(clusters, "r") as f:
+        
+        reader = csv.reader(f, delimiter="\t")
+        
+        for row in reader:
+            if len(row) >= 2:
+                
+                cluster_id, protein_id = row[0], row[1]
+                clusters[cluster_id].append(protein_id)
+
+    return clusters
+
+
+def build_paralog_table(protein_info, clusters):
+    
+    rows = []
+    
+    for cluster_id, members in clusters.items():
+        if len(members) <= 1:
+            continue
+
+        copy_number = len(members)
+        for pid in members:
+            pname = protein_info.get(pid, "")
+            rows.append({
+                "proteinid": pid,
+                "proteinname": pname,
+                "copynumber": copy_number
+            })
+
+    if len(rows) == 0:
+        
+        return pd.DataFrame(columns=["proteinid", "proteinname", "copynumber"])
+        print("no paralogs")
+
+    return pd.DataFrame(rows)
+
+
+def plot_top_paralogs(df, out_png, top_n=10):
+
+    if df.empty:
+        print("no paralogs")
+        return
+
+    uniq = df.drop_duplicates(subset=["proteinid"])
+    top = uniq.sort_values("copynumber", ascending=False).head(top_n)
+
+    labels = [
+        row["proteinname"] if row["proteinname"] else row["proteinid"]
+        for _, row in top.iterrows()
+    ]
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(range(len(top)), top["copynumber"])
+    plt.xticks(range(len(top)), labels, rotation=45, ha="right")
+    plt.ylabel("Copy number")
+    plt.title("Paralogs")
+    plt.tight_layout()
+    plt.savefig(out_png, dpi=600)
+    plt.close()
+
+
+# -------------------- MAIN ------------------------
+
+print("Loading protein names...")
+protein_info = load_protein_names(FAA_FILE)
+
+print("Loading clusters...")
+clusters = load_clusters(CLUSTER_FILE)
+
+print("Building paralog table...")
+df = build_paralog_table(protein_info, clusters)
+
+print(f"Writing output TSV → {OUT_TSV}")
+df.to_csv(OUT_TSV, sep="\t", index=False)
+
+print(f"Plotting PNG → {OUT_PNG}")
+plot_top_paralogs(df, OUT_PNG)
+
+print("Done! 🎉")
