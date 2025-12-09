@@ -118,6 +118,8 @@ if align_clicked:
             st.error(f"Alignment failed: {e}")
             st.exception(e)
 
+        print("yay! :0")
+
         fig = px.histogram(
             vals, nbins=10, title="Distribution of Match Values (Match=1, Mismatch=0)"
         )
