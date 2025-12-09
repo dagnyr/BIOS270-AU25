@@ -5,10 +5,10 @@ from collections import defaultdict
 import pandas as pd
 import matplotlib.pyplot as plt
 
-FAA_FILE = "/farmshare/home/classes/bios/270/data/project1/ecoli_bakta_out/assembly.faa"
-CLUSTER_FILE = "/farmshare/home/classes/bios/270/data/project1/ecoli_mmseqs_out/ecoli_prot90_cluster.tsv"
-OUT_TSV = "paralogs.tsv"
-OUT_PNG = "paralogs_top10.png"
+faa_file_path = "/farmshare/home/classes/bios/270/data/project1/ecoli_bakta_out/assembly.faa"
+cluster_file_path = "/farmshare/home/classes/bios/270/data/project1/ecoli_mmseqs_out/ecoli_prot90_cluster.tsv"
+tsv_out = "paralogs.tsv"
+png_out = "paralogs_top10.png"
 
 # functions
 
@@ -94,8 +94,8 @@ plt.close()
 
 # plotting and running
 
-protein_info = protein_names(FAA_FILE)
-clusters = load_clusters(CLUSTER_FILE)
+protein_info = protein_names(faa_file_path)
+clusters = load_clusters(cluster_file_path)
 df = build_paralog_table(protein_info, clusters)
-df.to_csv(OUT_TSV, sep="\t", index=False)
-plot_top_paralogs(df, OUT_PNG)
+df.to_csv(tsv_out, sep="\t", index=False)
+plot_top_paralogs(df, png_out)
