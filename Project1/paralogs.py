@@ -10,6 +10,8 @@ CLUSTER_FILE = "/farmshare/home/classes/bios/270/data/project1/ecoli_mmseqs_out/
 OUT_TSV = "paralogs.tsv"
 OUT_PNG = "paralogs_top10.png"
 
+# functions
+
 def protein_names(faa):
     protein_info = {} # make dictionary
 
@@ -29,7 +31,6 @@ def protein_names(faa):
                 protein_info[protein_id] = protein_name
 
     return protein_info
-
 
 def load_clusters(cluster_file):
     clusters = defaultdict(list)
@@ -68,7 +69,6 @@ def build_paralog_table(protein_info, clusters):
 
     return pd.DataFrame(rows)
 
-
 def plot_top_paralogs(df, out_png, top_n=10):
 
     if df.empty:
@@ -92,20 +92,10 @@ def plot_top_paralogs(df, out_png, top_n=10):
     plt.savefig(out_png, dpi=600)
     plt.close()
 
+# plotting and running
 
-# -------------------- MAIN ------------------------
-
-print("Loading protein names...")
 protein_info = protein_names(FAA_FILE)
-
-print("Loading clusters...")
 clusters = load_clusters(CLUSTER_FILE)
-
-print("Building paralog table...")
 df = build_paralog_table(protein_info, clusters)
-
-print(f"Writing output TSV → {OUT_TSV}")
 df.to_csv(OUT_TSV, sep="\t", index=False)
-
-print(f"Plotting PNG → {OUT_PNG}")
 plot_top_paralogs(df, OUT_PNG)
