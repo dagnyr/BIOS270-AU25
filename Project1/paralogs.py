@@ -83,14 +83,14 @@ def plot_top_paralogs(df, out_png, top_n=10):
         for _, row in top.iterrows()
     ]
 
-plt.figure(figsize=(9, 4))
-plt.bar(range(len(top)), top["copynumber"])
-plt.xticks(range(len(top)), labels, rotation=45, ha="right")
-plt.ylabel("Copy number")
-plt.title("Paralogs")
-plt.tight_layout()
-plt.savefig(out_png, dpi=600)
-plt.close()
+    plt.figure(figsize=(9, 4))
+    plt.bar(range(len(top)), top["copynumber"], color = "hotpink")
+    plt.xticks(range(len(top)), labels, rotation=45, ha="left")
+    plt.ylabel("copy number")
+    plt.title("paralogs")
+    plt.tight_layout()
+    plt.savefig(out_png, dpi=600)
+    plt.close()
 
 # plotting and running
 
