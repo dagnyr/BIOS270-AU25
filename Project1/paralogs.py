@@ -20,13 +20,13 @@ def protein_names(faa):
             if line.startswith(">"): # new seq line in fasta bvegins with >
                 header = line[1:].strip()
                 parts = header.split()
-                protein_id = parts[0]
+                protein_id = parts[0] # first part of fasta
                 
                 if len(parts) > 1:
-                    protein_name = " ".join(parts[1:])
+                    protein_name = " ".join(parts[1:]) # second part
                 
                 else:
-                    protein_name = "None"
+                    protein_name = "None" # add value none iof theres no name
                 
                 protein_info[protein_id] = protein_name
 
@@ -39,9 +39,8 @@ def load_clusters(cluster_file):
         reader = csv.reader(f, delimiter="\t")
 
         for row in reader:
-            if len(row) >= 2:
-                cluster_id, protein_id = row[0], row[1]
-                clusters[cluster_id].append(protein_id)
+            cluster_id, protein_id = row[0], row[1]
+            clusters[cluster_id].append(protein_id)
 
     return clusters
 
@@ -50,36 +49,31 @@ def build_paralog_table(protein_info, clusters):
     rows = []
     
     for cluster_id, members in clusters.items():
-        if len(members) <= 1:
+        if len(members) <= 1: # only keep groups with multiple paralogs
             continue
 
         copy_number = len(members)
         for pid in members:
             pname = protein_info.get(pid, "")
             rows.append({
-                "proteinid": pid,
-                "proteinname": pname,
-                "copynumber": copy_number
+                "protein_id": pid,
+                "protein_name": pname,
+                "copy_number": copy_number
             })
 
     if len(rows) == 0:
-        
-        return pd.DataFrame(columns=["proteinid", "proteinname", "copynumber"])
+
         print("no paralogs")
 
     return pd.DataFrame(rows)
 
 def plot_top_paralogs(df, out_png, top_n=10):
 
-    if df.empty:
-        print("no paralogs")
-        return
-
-    uniq = df.drop_duplicates(subset=["proteinid"])
-    top = uniq.sort_values("copynumber", ascending=False).head(top_n)
+    df_unique = df.drop_duplicates(subset=["proteinid"])
+    top = df_unique.sort_values("copy_number", ascending=False).head(top_n)
 
     labels = [
-        row["proteinname"] if row["proteinname"] else row["proteinid"]
+        row["protein_name"] if row["protein_name"] else row["protein_id"]
         for _, row in top.iterrows()
     ]
 
