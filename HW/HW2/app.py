@@ -9,7 +9,7 @@ from utils import chunk_lines, clean_seq
 st.set_page_config(page_title="Pairwise Sequence Aligner", layout="wide")
 
 st.image(
-    "https://github.com/dagnyr/BIOS270-AU25/HW/HW2/gingerbreadman.jpeg",
+    "https://raw.githubusercontent.com/dagnyr/BIOS270-AU25/main/HW/HW2/gingerbreadman.jpeg",
     width=150,
 )
 
