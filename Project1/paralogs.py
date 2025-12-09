@@ -5,8 +5,8 @@ from collections import defaultdict
 import pandas as pd
 import matplotlib.pyplot as plt
 
-FAA_FILE = "/path/to/assembly.faa"
-CLUSTER_FILE = "/path/to/cluster.tsv"
+FAA_FILE = "/farmshare/home/classes/bios/270/data/project1/ecoli_bakta_out/assembly.faa"
+CLUSTER_FILE = "/farmshare/home/classes/bios/270/data/project1/ecoli_mmseqs_out/ecoli_prot90_cluster.tsv"
 OUT_TSV = "paralogs.tsv"
 OUT_PNG = "paralogs_top10.png"
 
@@ -31,21 +31,18 @@ def protein_names(faa):
     return protein_info
 
 
-def load_clusters(clusters):
+def load_clusters(cluster_file):
     clusters = defaultdict(list)
 
-    with open(clusters, "r") as f:
-        
+    with open(cluster_file, "r") as f:
         reader = csv.reader(f, delimiter="\t")
-        
+
         for row in reader:
             if len(row) >= 2:
-                
                 cluster_id, protein_id = row[0], row[1]
                 clusters[cluster_id].append(protein_id)
 
     return clusters
-
 
 def build_paralog_table(protein_info, clusters):
     
@@ -99,7 +96,7 @@ def plot_top_paralogs(df, out_png, top_n=10):
 # -------------------- MAIN ------------------------
 
 print("Loading protein names...")
-protein_info = load_protein_names(FAA_FILE)
+protein_info = protein_names(FAA_FILE)
 
 print("Loading clusters...")
 clusters = load_clusters(CLUSTER_FILE)
@@ -112,5 +109,3 @@ df.to_csv(OUT_TSV, sep="\t", index=False)
 
 print(f"Plotting PNG → {OUT_PNG}")
 plot_top_paralogs(df, OUT_PNG)
-
-print("Done! 🎉")
