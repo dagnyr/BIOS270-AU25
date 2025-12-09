@@ -1,11 +1,23 @@
-import streamlit as st
 import numpy as np
 import plotly.express as px
-from utils import clean_seq, chunk_lines
-from align import compute_alignment, alignment_stats
+import streamlit as st
+
+from align import alignment_stats, compute_alignment
+from utils import chunk_lines, clean_seq
 
 # ---------------- Streamlit App ----------------
 st.set_page_config(page_title="Pairwise Sequence Aligner", layout="wide")
+
+st.image(
+    "https://github.com/dagnyr/BIOS270-AU25/HW/HW2/gingerbreadman.jpeg?raw=true",
+    width=150,
+)
+
+# st.image(
+#    "/Users/dr/cr/pr/BIOS270-AU25/HW/HW2/gingerbreadman.jpeg",
+#    width=150,
+# )
+
 st.title("Pairwise Sequence Aligner")
 
 st.markdown(
@@ -105,6 +117,11 @@ if align_clicked:
         except Exception as e:
             st.error(f"Alignment failed: {e}")
             st.exception(e)
+
+        fig = px.histogram(
+            vals, nbins=10, title="Distribution of Match Values (Match=1, Mismatch=0)"
+        )
+        st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("---")
 st.markdown("© 2025 BIOS270-AU25 Course")

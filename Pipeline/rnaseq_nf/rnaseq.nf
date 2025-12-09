@@ -32,9 +32,7 @@ workflow {
         data = SALMON_INDEX( file(params.transcriptome) )
     }
     else {
-    error """
-    no salmon index or transcriptome provided
-    """
+        log.error "no index file or transcriptome file"
     }
 
     FASTQC(samples_ch)

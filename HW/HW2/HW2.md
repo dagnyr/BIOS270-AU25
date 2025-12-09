@@ -8,7 +8,7 @@ Resource: [streamlit](https://docs.streamlit.io/get-started/fundamentals/main-co
 > Instruction: This HW is light enough to be run locally. Run on your laptop instead of Farmshare. Clone your repo to your laptop.
 ---
 
-## Part 1 - Streamlit features
+## Part 1 - Streamlit features ✅
 
 To run the app:
 
@@ -17,7 +17,10 @@ streamlit run app.py
 ```
 You will need to install packages in `requirement.txt`. Apply what you learn in Lecture 2 to set up your environment.
 
-### Add a Logo or Header Image
+conda create -n bios270-hw2 streamlit biopython plotly numpy ✅ (works)
+
+
+### Add a Logo or Header Image ✅
 At the very top of the Streamlit app, add an image as your app logo
 
 ```python
@@ -27,11 +30,11 @@ st.image(
     width=150
 )
 ```
-Try placing this before `st.title("Pairwise Sequence Aligner")`.
+Try placing this before `st.title("Pairwise Sequence Aligner")`. ✅
 
 ---
 
-### Plot a Histogram of Match Values
+### Plot a Histogram of Match Values ✅
 After alignment is computed, visualize how many positions were matches (1) vs mismatches (0).
 
 ```python
@@ -40,7 +43,7 @@ fig = px.histogram(vals, nbins=10, title="Distribution of Match Values (Match=1,
 st.plotly_chart(fig, use_container_width=True)
 ```
 
-Run the app locally to make sure everything works as expected.
+Run the app locally to make sure everything works as expected. ✅
 
 ---
 
@@ -52,9 +55,9 @@ In Streamlit, what happens when you define and click the defined button:
 align_clicked = st.button("▶️ Align sequences")
 ```
 
-- [ ] The app runs this line only once when first loaded and won't rerun it.  
-- [ ] The app waits (pauses) until the user clicks the button before continuing.  
-- [ ] When the user clicks the button, Streamlit reruns the entire script from the top, and `align_clicked` becomes `True` for that run, allowing the code inside `if align_clicked:` to execute.  
+- [ ] The app runs this line only once when first loaded and won't rerun it. ❌ 
+- [ ] The app waits (pauses) until the user clicks the button before continuing. ❌
+- [] When the user clicks the button, Streamlit reruns the entire script from the top, and `align_clicked` becomes `True` for that run, allowing the code inside `if align_clicked:` to execute. ✅
 
 ---
 
@@ -63,9 +66,9 @@ Why do we use:
 ```python
 st.plotly_chart(fig, use_container_width=True)
 ```
-- [ ] It makes the chart automatically scale to fit the available page width.  
-- [ ] It forces Streamlit to display a smaller chart.  
-- [ ] It changes how Plotly computes data ranges.  
+- [ ] It makes the chart automatically scale to fit the available page width.  ✅ 
+- [ ] It forces Streamlit to display a smaller chart. ❌
+- [ ] It changes how Plotly computes data ranges. ❌
 
 ---
 
